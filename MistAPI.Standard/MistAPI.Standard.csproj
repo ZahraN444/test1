@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ - MistAPI.Standard
+ -
+ - This file was automatically generated for nametest by APIMATIC v3.0 ( https://www.apimatic.io ).
+-->
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>testpackage.rd</AssemblyName>
+    <Version>1.2.3.0</Version>
+    <Authors>Thomas Munzer</Authors>
+    <Owners>Thomas Munzer</Owners>
+    <Product>MistAPI.Standard</Product>
+    <Copyright>Copyright ©  2019</Copyright>
+    <AssemblyVersion>1.2.3.0</AssemblyVersion>
+    <FileVersion>1.2.3.0</FileVersion>
+    <Description>.NET client library for the Mist API</Description>
+    <LangVersion>7.3</LangVersion>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <PackageId>testpackage.rd</PackageId>
+    <RepositoryUrl>https://github.com/ZahraN444/test1.git</RepositoryUrl>
+    <PackRepositoryTypeageId>git</PackRepositoryTypeageId>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include= "APIMatic.Core" Version= "0.4.*" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+        <_Parameter1>MistAPI.Tests</_Parameter1>
+    </AssemblyAttribute>
+    <None Include="..\README.md" Pack="true" PackagePath="\"/>
+    <None Include="..\LICENSE" Pack="true" PackagePath="\"/>
+  </ItemGroup>
+
+</Project>
