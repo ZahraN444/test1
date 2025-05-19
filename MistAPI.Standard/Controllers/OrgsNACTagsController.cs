@@ -43,8 +43,8 @@ namespace MistAPI.Standard.Controllers
         /// <param name="match">Optional parameter: Type of NAC Tag.</param>
         /// <param name="page">Optional parameter: Example: 1.</param>
         /// <param name="limit">Optional parameter: Example: 100.</param>
-        /// <returns>Returns the ApiResponse of List&lt;Models.NacTag&gt; response from the API call.</returns>
-        public ApiResponse<List<Models.NacTag>> ListOrgNacTags(
+        /// <returns>Returns the ApiResponse of List&lt;Models.NacTagModel&gt; response from the API call.</returns>
+        public ApiResponse<List<Models.NacTagModel>> ListOrgNacTags(
                 Guid orgId,
                 string type = null,
                 string name = null,
@@ -63,8 +63,8 @@ namespace MistAPI.Standard.Controllers
         /// <param name="page">Optional parameter: Example: 1.</param>
         /// <param name="limit">Optional parameter: Example: 100.</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
-        /// <returns>Returns the ApiResponse of List&lt;Models.NacTag&gt; response from the API call.</returns>
-        public async Task<ApiResponse<List<Models.NacTag>>> ListOrgNacTagsAsync(
+        /// <returns>Returns the ApiResponse of List&lt;Models.NacTagModel&gt; response from the API call.</returns>
+        public async Task<ApiResponse<List<Models.NacTagModel>>> ListOrgNacTagsAsync(
                 Guid orgId,
                 string type = null,
                 string name = null,
@@ -72,7 +72,7 @@ namespace MistAPI.Standard.Controllers
                 int? page = 1,
                 int? limit = 100,
                 CancellationToken cancellationToken = default)
-            => await CreateApiCall<List<Models.NacTag>>()
+            => await CreateApiCall<List<Models.NacTagModel>>()
               .RequestBuilder(_requestBuilder => _requestBuilder
                   .Setup(HttpMethod.Get, "/api/v1/orgs/{org_id}/nactags")
                   .WithOrAuth(_orAuth => _orAuth
@@ -103,10 +103,10 @@ namespace MistAPI.Standard.Controllers
         /// </summary>
         /// <param name="orgId">Required parameter: Example: .</param>
         /// <param name="body">Optional parameter: Example: .</param>
-        /// <returns>Returns the ApiResponse of Models.NacTag response from the API call.</returns>
-        public ApiResponse<Models.NacTag> CreateOrgNacTag(
+        /// <returns>Returns the ApiResponse of Models.NacTagModel response from the API call.</returns>
+        public ApiResponse<Models.NacTagModel> CreateOrgNacTag(
                 Guid orgId,
-                Models.NacTag body = null)
+                Models.NacTagModel body = null)
             => CoreHelper.RunTask(CreateOrgNacTagAsync(orgId, body));
 
         /// <summary>
@@ -115,12 +115,12 @@ namespace MistAPI.Standard.Controllers
         /// <param name="orgId">Required parameter: Example: .</param>
         /// <param name="body">Optional parameter: Example: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
-        /// <returns>Returns the ApiResponse of Models.NacTag response from the API call.</returns>
-        public async Task<ApiResponse<Models.NacTag>> CreateOrgNacTagAsync(
+        /// <returns>Returns the ApiResponse of Models.NacTagModel response from the API call.</returns>
+        public async Task<ApiResponse<Models.NacTagModel>> CreateOrgNacTagAsync(
                 Guid orgId,
-                Models.NacTag body = null,
+                Models.NacTagModel body = null,
                 CancellationToken cancellationToken = default)
-            => await CreateApiCall<Models.NacTag>()
+            => await CreateApiCall<Models.NacTagModel>()
               .RequestBuilder(_requestBuilder => _requestBuilder
                   .Setup(HttpMethod.Post, "/api/v1/orgs/{org_id}/nactags")
                   .WithOrAuth(_orAuth => _orAuth
@@ -191,8 +191,8 @@ namespace MistAPI.Standard.Controllers
         /// </summary>
         /// <param name="orgId">Required parameter: Example: .</param>
         /// <param name="nactagId">Required parameter: Example: .</param>
-        /// <returns>Returns the ApiResponse of Models.NacTag response from the API call.</returns>
-        public ApiResponse<Models.NacTag> GetOrgNacTag(
+        /// <returns>Returns the ApiResponse of Models.NacTagModel response from the API call.</returns>
+        public ApiResponse<Models.NacTagModel> GetOrgNacTag(
                 Guid orgId,
                 Guid nactagId)
             => CoreHelper.RunTask(GetOrgNacTagAsync(orgId, nactagId));
@@ -203,12 +203,12 @@ namespace MistAPI.Standard.Controllers
         /// <param name="orgId">Required parameter: Example: .</param>
         /// <param name="nactagId">Required parameter: Example: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
-        /// <returns>Returns the ApiResponse of Models.NacTag response from the API call.</returns>
-        public async Task<ApiResponse<Models.NacTag>> GetOrgNacTagAsync(
+        /// <returns>Returns the ApiResponse of Models.NacTagModel response from the API call.</returns>
+        public async Task<ApiResponse<Models.NacTagModel>> GetOrgNacTagAsync(
                 Guid orgId,
                 Guid nactagId,
                 CancellationToken cancellationToken = default)
-            => await CreateApiCall<Models.NacTag>()
+            => await CreateApiCall<Models.NacTagModel>()
               .RequestBuilder(_requestBuilder => _requestBuilder
                   .Setup(HttpMethod.Get, "/api/v1/orgs/{org_id}/nactags/{nactag_id}")
                   .WithOrAuth(_orAuth => _orAuth
@@ -236,11 +236,11 @@ namespace MistAPI.Standard.Controllers
         /// <param name="orgId">Required parameter: Example: .</param>
         /// <param name="nactagId">Required parameter: Example: .</param>
         /// <param name="body">Optional parameter: Example: .</param>
-        /// <returns>Returns the ApiResponse of Models.NacTag response from the API call.</returns>
-        public ApiResponse<Models.NacTag> UpdateOrgNacTag(
+        /// <returns>Returns the ApiResponse of Models.NacTagModel response from the API call.</returns>
+        public ApiResponse<Models.NacTagModel> UpdateOrgNacTag(
                 Guid orgId,
                 Guid nactagId,
-                Models.NacTag body = null)
+                Models.NacTagModel body = null)
             => CoreHelper.RunTask(UpdateOrgNacTagAsync(orgId, nactagId, body));
 
         /// <summary>
@@ -250,13 +250,13 @@ namespace MistAPI.Standard.Controllers
         /// <param name="nactagId">Required parameter: Example: .</param>
         /// <param name="body">Optional parameter: Example: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
-        /// <returns>Returns the ApiResponse of Models.NacTag response from the API call.</returns>
-        public async Task<ApiResponse<Models.NacTag>> UpdateOrgNacTagAsync(
+        /// <returns>Returns the ApiResponse of Models.NacTagModel response from the API call.</returns>
+        public async Task<ApiResponse<Models.NacTagModel>> UpdateOrgNacTagAsync(
                 Guid orgId,
                 Guid nactagId,
-                Models.NacTag body = null,
+                Models.NacTagModel body = null,
                 CancellationToken cancellationToken = default)
-            => await CreateApiCall<Models.NacTag>()
+            => await CreateApiCall<Models.NacTagModel>()
               .RequestBuilder(_requestBuilder => _requestBuilder
                   .Setup(HttpMethod.Put, "/api/v1/orgs/{org_id}/nactags/{nactag_id}")
                   .WithOrAuth(_orAuth => _orAuth

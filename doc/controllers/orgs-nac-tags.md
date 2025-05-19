@@ -39,12 +39,12 @@ ListOrgNacTagsAsync(
 | `type` | `string` | Query, Optional | Type of NAC Tag |
 | `name` | `string` | Query, Optional | Name of NAC Tag |
 | `match` | `string` | Query, Optional | Type of NAC Tag |
-| `page` | `int?` | Query, Optional | **Default**: `1`<br>**Constraints**: `>= 1` |
-| `limit` | `int?` | Query, Optional | **Default**: `100`<br>**Constraints**: `>= 0` |
+| `page` | `int?` | Query, Optional | **Default**: `1`<br><br>**Constraints**: `>= 1` |
+| `limit` | `int?` | Query, Optional | **Default**: `100`<br><br>**Constraints**: `>= 0` |
 
 ## Response Type
 
-[`Task<ApiResponse<List<Models.NacTag>>>`](../../doc/models/nac-tag.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `Data` property of this instance returns the response data which is of type [List<Models.NacTagModel>](../../doc/models/nac-tag-model.md).
 
 ## Example Usage
 
@@ -54,7 +54,7 @@ int? page = 1;
 int? limit = 100;
 try
 {
-    ApiResponse<List<NacTag>> result = await orgsNACTagsController.ListOrgNacTagsAsync(
+    ApiResponse<List<NacTagModel>> result = await orgsNACTagsController.ListOrgNacTagsAsync(
         orgId,
         null,
         null,
@@ -88,7 +88,7 @@ Create Org NAC Tag
 ```csharp
 CreateOrgNacTagAsync(
     Guid orgId,
-    Models.NacTag body = null)
+    Models.NacTagModel body = null)
 ```
 
 ## Parameters
@@ -96,17 +96,17 @@ CreateOrgNacTagAsync(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `orgId` | `Guid` | Template, Required | - |
-| `body` | [`NacTag`](../../doc/models/nac-tag.md) | Body, Optional | - |
+| `body` | [`NacTagModel`](../../doc/models/nac-tag-model.md) | Body, Optional | - |
 
 ## Response Type
 
-[`Task<ApiResponse<Models.NacTag>>`](../../doc/models/nac-tag.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `Data` property of this instance returns the response data which is of type [Models.NacTagModel](../../doc/models/nac-tag-model.md).
 
 ## Example Usage
 
 ```csharp
 Guid orgId = new Guid("000000ab-00ab-00ab-00ab-0000000000ab");
-NacTag body = new NacTag
+NacTagModel body = new NacTagModel
 {
     Name = "name6",
     Type = NacTagType.UsernameAttr,
@@ -133,7 +133,7 @@ NacTag body = new NacTag
 
 try
 {
-    ApiResponse<NacTag> result = await orgsNACTagsController.CreateOrgNacTagAsync(
+    ApiResponse<NacTagModel> result = await orgsNACTagsController.CreateOrgNacTagAsync(
         orgId,
         body
     );
@@ -240,7 +240,7 @@ GetOrgNacTagAsync(
 
 ## Response Type
 
-[`Task<ApiResponse<Models.NacTag>>`](../../doc/models/nac-tag.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `Data` property of this instance returns the response data which is of type [Models.NacTagModel](../../doc/models/nac-tag-model.md).
 
 ## Example Usage
 
@@ -249,7 +249,7 @@ Guid orgId = new Guid("000000ab-00ab-00ab-00ab-0000000000ab");
 Guid nactagId = new Guid("000000ab-00ab-00ab-00ab-0000000000ab");
 try
 {
-    ApiResponse<NacTag> result = await orgsNACTagsController.GetOrgNacTagAsync(
+    ApiResponse<NacTagModel> result = await orgsNACTagsController.GetOrgNacTagAsync(
         orgId,
         nactagId
     );
@@ -294,7 +294,7 @@ Update Org NAC Tag
 UpdateOrgNacTagAsync(
     Guid orgId,
     Guid nactagId,
-    Models.NacTag body = null)
+    Models.NacTagModel body = null)
 ```
 
 ## Parameters
@@ -303,18 +303,18 @@ UpdateOrgNacTagAsync(
 |  --- | --- | --- | --- |
 | `orgId` | `Guid` | Template, Required | - |
 | `nactagId` | `Guid` | Template, Required | - |
-| `body` | [`NacTag`](../../doc/models/nac-tag.md) | Body, Optional | - |
+| `body` | [`NacTagModel`](../../doc/models/nac-tag-model.md) | Body, Optional | - |
 
 ## Response Type
 
-[`Task<ApiResponse<Models.NacTag>>`](../../doc/models/nac-tag.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `Data` property of this instance returns the response data which is of type [Models.NacTagModel](../../doc/models/nac-tag-model.md).
 
 ## Example Usage
 
 ```csharp
 Guid orgId = new Guid("000000ab-00ab-00ab-00ab-0000000000ab");
 Guid nactagId = new Guid("000000ab-00ab-00ab-00ab-0000000000ab");
-NacTag body = new NacTag
+NacTagModel body = new NacTagModel
 {
     Name = "name6",
     Type = NacTagType.UsernameAttr,
@@ -341,7 +341,7 @@ NacTag body = new NacTag
 
 try
 {
-    ApiResponse<NacTag> result = await orgsNACTagsController.UpdateOrgNacTagAsync(
+    ApiResponse<NacTagModel> result = await orgsNACTagsController.UpdateOrgNacTagAsync(
         orgId,
         nactagId,
         body

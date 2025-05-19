@@ -38,5 +38,23 @@ namespace MistAPI.Standard.Exceptions
         /// </summary>
         [JsonProperty("detail", NullValueHandling = NullValueHandling.Ignore)]
         public string Detail { get; set; }
+
+        /// <inheritdoc/>
+        public override string ToString()
+        {
+            var toStringOutput = new List<string>();
+            this.ToString(toStringOutput);
+            return $"ApiV1OrgsNacportalsFailures403ErrorException : ({string.Join(", ", toStringOutput)})";
+        }
+
+        /// <summary>
+        /// ToString overload.
+        /// </summary>
+        /// <param name="toStringOutput">List of strings.</param>
+        protected void ToString(List<string> toStringOutput)
+        {
+            base.ToString(toStringOutput);
+            toStringOutput.Add($"Detail = {this.Detail ?? "null"}");
+        }
     }
 }

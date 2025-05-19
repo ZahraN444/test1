@@ -54,7 +54,7 @@ namespace MistAPI.Tests
             int? limit = 100;
 
             // Perform API call
-            ApiResponse<List<Standard.Models.NacTag>> result = null;
+            ApiResponse<List<Standard.Models.NacTagModel>> result = null;
             try
             {
                 result = await this.controller.ListOrgNacTagsAsync(orgId, type, name, match, page, limit);
@@ -86,10 +86,10 @@ namespace MistAPI.Tests
         {
             // Parameters for the API call
             Guid orgId = Guid.Parse("000000ab-00ab-00ab-00ab-0000000000ab");
-            Standard.Models.NacTag body = null;
+            Standard.Models.NacTagModel body = null;
 
             // Perform API call
-            ApiResponse<Standard.Models.NacTag> result = null;
+            ApiResponse<Standard.Models.NacTagModel> result = null;
             try
             {
                 result = await this.controller.CreateOrgNacTagAsync(orgId, body);
@@ -159,7 +159,7 @@ namespace MistAPI.Tests
             Guid nactagId = Guid.Parse("000000ab-00ab-00ab-00ab-0000000000ab");
 
             // Perform API call
-            ApiResponse<Standard.Models.NacTag> result = null;
+            ApiResponse<Standard.Models.NacTagModel> result = null;
             try
             {
                 result = await this.controller.GetOrgNacTagAsync(orgId, nactagId);
@@ -203,10 +203,10 @@ namespace MistAPI.Tests
             // Parameters for the API call
             Guid orgId = Guid.Parse("000000ab-00ab-00ab-00ab-0000000000ab");
             Guid nactagId = Guid.Parse("000000ab-00ab-00ab-00ab-0000000000ab");
-            Standard.Models.NacTag body = null;
+            Standard.Models.NacTagModel body = null;
 
             // Perform API call
-            ApiResponse<Standard.Models.NacTag> result = null;
+            ApiResponse<Standard.Models.NacTagModel> result = null;
             try
             {
                 result = await this.controller.UpdateOrgNacTagAsync(orgId, nactagId, body);

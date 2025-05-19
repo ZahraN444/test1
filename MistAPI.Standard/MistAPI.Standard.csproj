@@ -9,13 +9,13 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>testpackage.rd</AssemblyName>
-    <Version>1.2.3.0</Version>
+    <Version>2.99.9.0</Version>
     <Authors>Thomas Munzer</Authors>
     <Owners>Thomas Munzer</Owners>
     <Product>MistAPI.Standard</Product>
     <Copyright>Copyright ©  2019</Copyright>
-    <AssemblyVersion>1.2.3.0</AssemblyVersion>
-    <FileVersion>1.2.3.0</FileVersion>
+    <AssemblyVersion>2.99.9.0</AssemblyVersion>
+    <FileVersion>2.99.9.0</FileVersion>
     <Description>.NET client library for the Mist API</Description>
     <LangVersion>7.3</LangVersion>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
@@ -29,7 +29,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include= "APIMatic.Core" Version= "0.4.*" />
+    <None Include="..\README.md" Link="README.md" />
+    <PackageReference Include="APIMatic.Core" Version= "[0.4.7, 0.5.0)" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
         <_Parameter1>MistAPI.Tests</_Parameter1>

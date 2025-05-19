@@ -51,7 +51,7 @@ namespace MistAPI.Tests
             int? limit = 100;
 
             // Perform API call
-            ApiResponse<List<Standard.Models.NacPortal>> result = null;
+            ApiResponse<List<Standard.Models.NacPortalModel>> result = null;
             try
             {
                 result = await this.controller.ListOrgNacPortalsAsync(orgId, page, limit);
@@ -94,10 +94,10 @@ namespace MistAPI.Tests
         {
             // Parameters for the API call
             Guid orgId = Guid.Parse("000000ab-00ab-00ab-00ab-0000000000ab");
-            Standard.Models.NacPortal body = null;
+            Standard.Models.NacPortalModel body = null;
 
             // Perform API call
-            ApiResponse<Standard.Models.NacPortal> result = null;
+            ApiResponse<Standard.Models.NacPortalModel> result = null;
             try
             {
                 result = await this.controller.CreateOrgNacPortalAsync(orgId, body);
@@ -167,7 +167,7 @@ namespace MistAPI.Tests
             Guid nacportalId = Guid.Parse("000000ab-00ab-00ab-00ab-0000000000ab");
 
             // Perform API call
-            ApiResponse<Standard.Models.NacPortal> result = null;
+            ApiResponse<Standard.Models.NacPortalModel> result = null;
             try
             {
                 result = await this.controller.GetOrgNacPortalAsync(orgId, nacportalId);
@@ -211,10 +211,10 @@ namespace MistAPI.Tests
             // Parameters for the API call
             Guid orgId = Guid.Parse("000000ab-00ab-00ab-00ab-0000000000ab");
             Guid nacportalId = Guid.Parse("000000ab-00ab-00ab-00ab-0000000000ab");
-            Standard.Models.NacPortal body = null;
+            Standard.Models.NacPortalModel body = null;
 
             // Perform API call
-            ApiResponse<Standard.Models.NacPortal> result = null;
+            ApiResponse<Standard.Models.NacPortalModel> result = null;
             try
             {
                 result = await this.controller.UpdateOrgNacPortalAsync(orgId, nacportalId, body);
@@ -265,7 +265,7 @@ namespace MistAPI.Tests
             string duration = "1d";
 
             // Perform API call
-            ApiResponse<Standard.Models.ResponseSsoFailureSearch> result = null;
+            ApiResponse<Standard.Models.ResponseSsoFailureSearchModel> result = null;
             try
             {
                 result = await this.controller.ListOrgNacPortalSsoLatestFailuresAsync(orgId, nacportalId, page, limit, start, end, duration);
@@ -362,7 +362,7 @@ namespace MistAPI.Tests
             // Parameters for the API call
             Guid orgId = Guid.Parse("000000ab-00ab-00ab-00ab-0000000000ab");
             Guid nacportalId = Guid.Parse("000000ab-00ab-00ab-00ab-0000000000ab");
-            Standard.Models.NacPortalTemplate body = null;
+            Standard.Models.NacPortalTemplateModel body = null;
 
             // Perform API call
             try

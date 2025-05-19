@@ -34,11 +34,11 @@
 If you are building with .NET CLI tools then you can also use the following command:
 
 ```bash
-dotnet add package testpackage.rd --version 1.2.3
+dotnet add package testpackage.rd --version 2.99.9
 ```
 
 You can also view the package at:
-https://www.nuget.org/packages/testpackage.rd/1.2.3
+https://www.nuget.org/packages/testpackage.rd/2.99.9
 
 ## Test the SDK
 
@@ -46,17 +46,18 @@ The generated SDK also contain one or more Tests, which are contained in the Tes
 
 ## Initialize the API Client
 
-**_Note:_** Documentation for the client can be found [here.](https://www.github.com/ZahraN444/test1/tree/1.2.3/doc/client.md)
+**_Note:_** Documentation for the client can be found [here.](https://www.github.com/ZahraN444/test1/tree/2.99.9/doc/client.md)
 
 The following parameters are configurable for the API Client:
 
 | Parameter | Type | Description |
 |  --- | --- | --- |
-| `Timeout` | `TimeSpan` | Http client timeout.<br>*Default*: `TimeSpan.FromSeconds(100)` |
-| `LogBuilder` | [`LogBuilder`](https://www.github.com/ZahraN444/test1/tree/1.2.3/doc/log-builder.md) | Represents the logging configuration builder for API calls |
-| `ApiTokenCredentials` | [`ApiTokenCredentials`](https://www.github.com/ZahraN444/test1/tree/1.2.3/doc/auth/custom-header-signature.md) | The Credentials Setter for Custom Header Signature |
-| `BasicAuthCredentials` | [`BasicAuthCredentials`](https://www.github.com/ZahraN444/test1/tree/1.2.3/doc/auth/basic-authentication.md) | The Credentials Setter for Basic Authentication |
-| `CsrfTokenCredentials` | [`CsrfTokenCredentials`](https://www.github.com/ZahraN444/test1/tree/1.2.3/doc/auth/custom-header-signature-1.md) | The Credentials Setter for Custom Header Signature |
+| Timeout | `TimeSpan` | Http client timeout.<br>*Default*: `TimeSpan.FromSeconds(100)` |
+| HttpClientConfiguration | [`Action<HttpClientConfiguration.Builder>`](https://www.github.com/ZahraN444/test1/tree/2.99.9/doc/http-client-configuration-builder.md) | Action delegate that configures the HTTP client by using the HttpClientConfiguration.Builder for customizing API call settings.<br>*Default*: `new HttpClient()` |
+| LogBuilder | [`LogBuilder`](https://www.github.com/ZahraN444/test1/tree/2.99.9/doc/log-builder.md) | Represents the logging configuration builder for API calls |
+| ApiTokenCredentials | [`ApiTokenCredentials`](https://www.github.com/ZahraN444/test1/tree/2.99.9/doc/auth/custom-header-signature.md) | The Credentials Setter for Custom Header Signature |
+| BasicAuthCredentials | [`BasicAuthCredentials`](https://www.github.com/ZahraN444/test1/tree/2.99.9/doc/auth/basic-authentication.md) | The Credentials Setter for Basic Authentication |
+| CsrfTokenCredentials | [`CsrfTokenCredentials`](https://www.github.com/ZahraN444/test1/tree/2.99.9/doc/auth/custom-header-signature-1.md) | The Credentials Setter for Custom Header Signature |
 
 The API client can be initialized as follows:
 
@@ -86,39 +87,40 @@ MistAPIClient client = new MistAPIClient.Builder()
     .Build();
 ```
 
-API calls return an `ApiResponse` object that includes the following fields:
-
-| Field | Description |
-|  --- | --- |
-| `StatusCode` | Status code of the HTTP response |
-| `Headers` | Headers of the HTTP response as a Hash |
-| `Data` | The deserialized body of the HTTP response as a String |
-
 ## Authorization
 
 This API uses the following authentication schemes.
 
-* [`apiToken (Custom Header Signature)`](https://www.github.com/ZahraN444/test1/tree/1.2.3/doc/auth/custom-header-signature.md)
-* [`basicAuth (Basic Authentication)`](https://www.github.com/ZahraN444/test1/tree/1.2.3/doc/auth/basic-authentication.md)
-* [`csrfToken (Custom Header Signature)`](https://www.github.com/ZahraN444/test1/tree/1.2.3/doc/auth/custom-header-signature-1.md)
+* [`apiToken (Custom Header Signature)`](https://www.github.com/ZahraN444/test1/tree/2.99.9/doc/auth/custom-header-signature.md)
+* [`basicAuth (Basic Authentication)`](https://www.github.com/ZahraN444/test1/tree/2.99.9/doc/auth/basic-authentication.md)
+* [`csrfToken (Custom Header Signature)`](https://www.github.com/ZahraN444/test1/tree/2.99.9/doc/auth/custom-header-signature-1.md)
 
 ## List of APIs
 
-* [Orgs NAC Tags](https://www.github.com/ZahraN444/test1/tree/1.2.3/doc/controllers/orgs-nac-tags.md)
-* [Orgs NAC Portals](https://www.github.com/ZahraN444/test1/tree/1.2.3/doc/controllers/orgs-nac-portals.md)
+* [Orgs NAC Tags](https://www.github.com/ZahraN444/test1/tree/2.99.9/doc/controllers/orgs-nac-tags.md)
+* [Orgs NAC Portals](https://www.github.com/ZahraN444/test1/tree/2.99.9/doc/controllers/orgs-nac-portals.md)
 
-## Classes Documentation
+## SDK Infrastructure
 
-* [Utility Classes](https://www.github.com/ZahraN444/test1/tree/1.2.3/doc/utility-classes.md)
-* [HttpRequest](https://www.github.com/ZahraN444/test1/tree/1.2.3/doc/http-request.md)
-* [HttpResponse](https://www.github.com/ZahraN444/test1/tree/1.2.3/doc/http-response.md)
-* [HttpStringResponse](https://www.github.com/ZahraN444/test1/tree/1.2.3/doc/http-string-response.md)
-* [HttpContext](https://www.github.com/ZahraN444/test1/tree/1.2.3/doc/http-context.md)
-* [HttpClientConfiguration](https://www.github.com/ZahraN444/test1/tree/1.2.3/doc/http-client-configuration.md)
-* [HttpClientConfiguration Builder](https://www.github.com/ZahraN444/test1/tree/1.2.3/doc/http-client-configuration-builder.md)
-* [IAuthManager](https://www.github.com/ZahraN444/test1/tree/1.2.3/doc/i-auth-manager.md)
-* [ApiException](https://www.github.com/ZahraN444/test1/tree/1.2.3/doc/api-exception.md)
-* [LogBuilder](https://www.github.com/ZahraN444/test1/tree/1.2.3/doc/log-builder.md)
-* [LogRequestBuilder](https://www.github.com/ZahraN444/test1/tree/1.2.3/doc/log-request-builder.md)
-* [LogResponseBuilder](https://www.github.com/ZahraN444/test1/tree/1.2.3/doc/log-response-builder.md)
+### Configuration
+
+* [HttpClientConfiguration](https://www.github.com/ZahraN444/test1/tree/2.99.9/doc/http-client-configuration.md)
+* [HttpClientConfigurationBuilder](https://www.github.com/ZahraN444/test1/tree/2.99.9/doc/http-client-configuration-builder.md)
+* [LogBuilder](https://www.github.com/ZahraN444/test1/tree/2.99.9/doc/log-builder.md)
+* [LogRequestBuilder](https://www.github.com/ZahraN444/test1/tree/2.99.9/doc/log-request-builder.md)
+* [LogResponseBuilder](https://www.github.com/ZahraN444/test1/tree/2.99.9/doc/log-response-builder.md)
+
+### HTTP
+
+* [HttpCallback](https://www.github.com/ZahraN444/test1/tree/2.99.9/doc/http-callback.md)
+* [HttpContext](https://www.github.com/ZahraN444/test1/tree/2.99.9/doc/http-context.md)
+* [HttpRequest](https://www.github.com/ZahraN444/test1/tree/2.99.9/doc/http-request.md)
+* [HttpResponse](https://www.github.com/ZahraN444/test1/tree/2.99.9/doc/http-response.md)
+* [HttpStringResponse](https://www.github.com/ZahraN444/test1/tree/2.99.9/doc/http-string-response.md)
+
+### Utilities
+
+* [ApiException](https://www.github.com/ZahraN444/test1/tree/2.99.9/doc/api-exception.md)
+* [ApiResponse](https://www.github.com/ZahraN444/test1/tree/2.99.9/doc/api-response.md)
+* [ApiHelper](https://www.github.com/ZahraN444/test1/tree/2.99.9/doc/api-helper.md)
 

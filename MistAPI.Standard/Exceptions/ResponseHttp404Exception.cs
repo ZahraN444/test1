@@ -38,5 +38,23 @@ namespace MistAPI.Standard.Exceptions
         /// </summary>
         [JsonProperty("id", NullValueHandling = NullValueHandling.Ignore)]
         public string Id { get; set; }
+
+        /// <inheritdoc/>
+        public override string ToString()
+        {
+            var toStringOutput = new List<string>();
+            this.ToString(toStringOutput);
+            return $"ResponseHttp404Exception : ({string.Join(", ", toStringOutput)})";
+        }
+
+        /// <summary>
+        /// ToString overload.
+        /// </summary>
+        /// <param name="toStringOutput">List of strings.</param>
+        protected void ToString(List<string> toStringOutput)
+        {
+            base.ToString(toStringOutput);
+            toStringOutput.Add($"Id = {this.Id ?? "null"}");
+        }
     }
 }

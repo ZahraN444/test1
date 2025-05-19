@@ -40,8 +40,8 @@ namespace MistAPI.Standard.Controllers
         /// <param name="orgId">Required parameter: Example: .</param>
         /// <param name="page">Optional parameter: Example: 1.</param>
         /// <param name="limit">Optional parameter: Example: 100.</param>
-        /// <returns>Returns the ApiResponse of List&lt;Models.NacPortal&gt; response from the API call.</returns>
-        public ApiResponse<List<Models.NacPortal>> ListOrgNacPortals(
+        /// <returns>Returns the ApiResponse of List&lt;Models.NacPortalModel&gt; response from the API call.</returns>
+        public ApiResponse<List<Models.NacPortalModel>> ListOrgNacPortals(
                 Guid orgId,
                 int? page = 1,
                 int? limit = 100)
@@ -54,13 +54,13 @@ namespace MistAPI.Standard.Controllers
         /// <param name="page">Optional parameter: Example: 1.</param>
         /// <param name="limit">Optional parameter: Example: 100.</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
-        /// <returns>Returns the ApiResponse of List&lt;Models.NacPortal&gt; response from the API call.</returns>
-        public async Task<ApiResponse<List<Models.NacPortal>>> ListOrgNacPortalsAsync(
+        /// <returns>Returns the ApiResponse of List&lt;Models.NacPortalModel&gt; response from the API call.</returns>
+        public async Task<ApiResponse<List<Models.NacPortalModel>>> ListOrgNacPortalsAsync(
                 Guid orgId,
                 int? page = 1,
                 int? limit = 100,
                 CancellationToken cancellationToken = default)
-            => await CreateApiCall<List<Models.NacPortal>>()
+            => await CreateApiCall<List<Models.NacPortalModel>>()
               .RequestBuilder(_requestBuilder => _requestBuilder
                   .Setup(HttpMethod.Get, "/api/v1/orgs/{org_id}/nacportals")
                   .WithOrAuth(_orAuth => _orAuth
@@ -88,10 +88,10 @@ namespace MistAPI.Standard.Controllers
         /// </summary>
         /// <param name="orgId">Required parameter: Example: .</param>
         /// <param name="body">Optional parameter: Example: .</param>
-        /// <returns>Returns the ApiResponse of Models.NacPortal response from the API call.</returns>
-        public ApiResponse<Models.NacPortal> CreateOrgNacPortal(
+        /// <returns>Returns the ApiResponse of Models.NacPortalModel response from the API call.</returns>
+        public ApiResponse<Models.NacPortalModel> CreateOrgNacPortal(
                 Guid orgId,
-                Models.NacPortal body = null)
+                Models.NacPortalModel body = null)
             => CoreHelper.RunTask(CreateOrgNacPortalAsync(orgId, body));
 
         /// <summary>
@@ -100,12 +100,12 @@ namespace MistAPI.Standard.Controllers
         /// <param name="orgId">Required parameter: Example: .</param>
         /// <param name="body">Optional parameter: Example: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
-        /// <returns>Returns the ApiResponse of Models.NacPortal response from the API call.</returns>
-        public async Task<ApiResponse<Models.NacPortal>> CreateOrgNacPortalAsync(
+        /// <returns>Returns the ApiResponse of Models.NacPortalModel response from the API call.</returns>
+        public async Task<ApiResponse<Models.NacPortalModel>> CreateOrgNacPortalAsync(
                 Guid orgId,
-                Models.NacPortal body = null,
+                Models.NacPortalModel body = null,
                 CancellationToken cancellationToken = default)
-            => await CreateApiCall<Models.NacPortal>()
+            => await CreateApiCall<Models.NacPortalModel>()
               .RequestBuilder(_requestBuilder => _requestBuilder
                   .Setup(HttpMethod.Post, "/api/v1/orgs/{org_id}/nacportals")
                   .WithOrAuth(_orAuth => _orAuth
@@ -176,8 +176,8 @@ namespace MistAPI.Standard.Controllers
         /// </summary>
         /// <param name="orgId">Required parameter: Example: .</param>
         /// <param name="nacportalId">Required parameter: Example: .</param>
-        /// <returns>Returns the ApiResponse of Models.NacPortal response from the API call.</returns>
-        public ApiResponse<Models.NacPortal> GetOrgNacPortal(
+        /// <returns>Returns the ApiResponse of Models.NacPortalModel response from the API call.</returns>
+        public ApiResponse<Models.NacPortalModel> GetOrgNacPortal(
                 Guid orgId,
                 Guid nacportalId)
             => CoreHelper.RunTask(GetOrgNacPortalAsync(orgId, nacportalId));
@@ -188,12 +188,12 @@ namespace MistAPI.Standard.Controllers
         /// <param name="orgId">Required parameter: Example: .</param>
         /// <param name="nacportalId">Required parameter: Example: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
-        /// <returns>Returns the ApiResponse of Models.NacPortal response from the API call.</returns>
-        public async Task<ApiResponse<Models.NacPortal>> GetOrgNacPortalAsync(
+        /// <returns>Returns the ApiResponse of Models.NacPortalModel response from the API call.</returns>
+        public async Task<ApiResponse<Models.NacPortalModel>> GetOrgNacPortalAsync(
                 Guid orgId,
                 Guid nacportalId,
                 CancellationToken cancellationToken = default)
-            => await CreateApiCall<Models.NacPortal>()
+            => await CreateApiCall<Models.NacPortalModel>()
               .RequestBuilder(_requestBuilder => _requestBuilder
                   .Setup(HttpMethod.Get, "/api/v1/orgs/{org_id}/nacportals/{nacportal_id}")
                   .WithOrAuth(_orAuth => _orAuth
@@ -221,11 +221,11 @@ namespace MistAPI.Standard.Controllers
         /// <param name="orgId">Required parameter: Example: .</param>
         /// <param name="nacportalId">Required parameter: Example: .</param>
         /// <param name="body">Optional parameter: Example: .</param>
-        /// <returns>Returns the ApiResponse of Models.NacPortal response from the API call.</returns>
-        public ApiResponse<Models.NacPortal> UpdateOrgNacPortal(
+        /// <returns>Returns the ApiResponse of Models.NacPortalModel response from the API call.</returns>
+        public ApiResponse<Models.NacPortalModel> UpdateOrgNacPortal(
                 Guid orgId,
                 Guid nacportalId,
-                Models.NacPortal body = null)
+                Models.NacPortalModel body = null)
             => CoreHelper.RunTask(UpdateOrgNacPortalAsync(orgId, nacportalId, body));
 
         /// <summary>
@@ -235,13 +235,13 @@ namespace MistAPI.Standard.Controllers
         /// <param name="nacportalId">Required parameter: Example: .</param>
         /// <param name="body">Optional parameter: Example: .</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
-        /// <returns>Returns the ApiResponse of Models.NacPortal response from the API call.</returns>
-        public async Task<ApiResponse<Models.NacPortal>> UpdateOrgNacPortalAsync(
+        /// <returns>Returns the ApiResponse of Models.NacPortalModel response from the API call.</returns>
+        public async Task<ApiResponse<Models.NacPortalModel>> UpdateOrgNacPortalAsync(
                 Guid orgId,
                 Guid nacportalId,
-                Models.NacPortal body = null,
+                Models.NacPortalModel body = null,
                 CancellationToken cancellationToken = default)
-            => await CreateApiCall<Models.NacPortal>()
+            => await CreateApiCall<Models.NacPortalModel>()
               .RequestBuilder(_requestBuilder => _requestBuilder
                   .Setup(HttpMethod.Put, "/api/v1/orgs/{org_id}/nacportals/{nacportal_id}")
                   .WithOrAuth(_orAuth => _orAuth
@@ -275,8 +275,8 @@ namespace MistAPI.Standard.Controllers
         /// <param name="start">Optional parameter: start datetime, can be epoch or relative time like -1d, -1w; -1d if not specified.</param>
         /// <param name="end">Optional parameter: end datetime, can be epoch or relative time like -1d, -2h; now if not specified.</param>
         /// <param name="duration">Optional parameter: duration like 7d, 2w.</param>
-        /// <returns>Returns the ApiResponse of Models.ResponseSsoFailureSearch response from the API call.</returns>
-        public ApiResponse<Models.ResponseSsoFailureSearch> ListOrgNacPortalSsoLatestFailures(
+        /// <returns>Returns the ApiResponse of Models.ResponseSsoFailureSearchModel response from the API call.</returns>
+        public ApiResponse<Models.ResponseSsoFailureSearchModel> ListOrgNacPortalSsoLatestFailures(
                 Guid orgId,
                 Guid nacportalId,
                 int? page = 1,
@@ -297,8 +297,8 @@ namespace MistAPI.Standard.Controllers
         /// <param name="end">Optional parameter: end datetime, can be epoch or relative time like -1d, -2h; now if not specified.</param>
         /// <param name="duration">Optional parameter: duration like 7d, 2w.</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
-        /// <returns>Returns the ApiResponse of Models.ResponseSsoFailureSearch response from the API call.</returns>
-        public async Task<ApiResponse<Models.ResponseSsoFailureSearch>> ListOrgNacPortalSsoLatestFailuresAsync(
+        /// <returns>Returns the ApiResponse of Models.ResponseSsoFailureSearchModel response from the API call.</returns>
+        public async Task<ApiResponse<Models.ResponseSsoFailureSearchModel>> ListOrgNacPortalSsoLatestFailuresAsync(
                 Guid orgId,
                 Guid nacportalId,
                 int? page = 1,
@@ -307,7 +307,7 @@ namespace MistAPI.Standard.Controllers
                 int? end = null,
                 string duration = "1d",
                 CancellationToken cancellationToken = default)
-            => await CreateApiCall<Models.ResponseSsoFailureSearch>()
+            => await CreateApiCall<Models.ResponseSsoFailureSearchModel>()
               .RequestBuilder(_requestBuilder => _requestBuilder
                   .Setup(HttpMethod.Get, "/api/v1/orgs/{org_id}/nacportals/{nacportal_id}/failures")
                   .WithOrAuth(_orAuth => _orAuth
@@ -441,7 +441,7 @@ namespace MistAPI.Standard.Controllers
         public void UpdateOrgNacPortalTempalte(
                 Guid orgId,
                 Guid nacportalId,
-                Models.NacPortalTemplate body = null)
+                Models.NacPortalTemplateModel body = null)
             => CoreHelper.RunVoidTask(UpdateOrgNacPortalTempalteAsync(orgId, nacportalId, body));
 
         /// <summary>
@@ -455,7 +455,7 @@ namespace MistAPI.Standard.Controllers
         public async Task UpdateOrgNacPortalTempalteAsync(
                 Guid orgId,
                 Guid nacportalId,
-                Models.NacPortalTemplate body = null,
+                Models.NacPortalTemplateModel body = null,
                 CancellationToken cancellationToken = default)
             => await CreateApiCall<VoidType>()
               .RequestBuilder(_requestBuilder => _requestBuilder

@@ -37,12 +37,12 @@ ListOrgNacPortalsAsync(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `orgId` | `Guid` | Template, Required | - |
-| `page` | `int?` | Query, Optional | **Default**: `1`<br>**Constraints**: `>= 1` |
-| `limit` | `int?` | Query, Optional | **Default**: `100`<br>**Constraints**: `>= 0` |
+| `page` | `int?` | Query, Optional | **Default**: `1`<br><br>**Constraints**: `>= 1` |
+| `limit` | `int?` | Query, Optional | **Default**: `100`<br><br>**Constraints**: `>= 0` |
 
 ## Response Type
 
-[`Task<ApiResponse<List<Models.NacPortal>>>`](../../doc/models/nac-portal.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `Data` property of this instance returns the response data which is of type [List<Models.NacPortalModel>](../../doc/models/nac-portal-model.md).
 
 ## Example Usage
 
@@ -52,7 +52,7 @@ int? page = 1;
 int? limit = 100;
 try
 {
-    ApiResponse<List<NacPortal>> result = await orgsNACPortalsController.ListOrgNacPortalsAsync(
+    ApiResponse<List<NacPortalModel>> result = await orgsNACPortalsController.ListOrgNacPortalsAsync(
         orgId,
         page,
         limit
@@ -113,7 +113,7 @@ Create Org NAC Portal
 ```csharp
 CreateOrgNacPortalAsync(
     Guid orgId,
-    Models.NacPortal body = null)
+    Models.NacPortalModel body = null)
 ```
 
 ## Parameters
@@ -121,17 +121,17 @@ CreateOrgNacPortalAsync(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `orgId` | `Guid` | Template, Required | - |
-| `body` | [`NacPortal`](../../doc/models/nac-portal.md) | Body, Optional | - |
+| `body` | [`NacPortalModel`](../../doc/models/nac-portal-model.md) | Body, Optional | - |
 
 ## Response Type
 
-[`Task<ApiResponse<Models.NacPortal>>`](../../doc/models/nac-portal.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `Data` property of this instance returns the response data which is of type [Models.NacPortalModel](../../doc/models/nac-portal-model.md).
 
 ## Example Usage
 
 ```csharp
 Guid orgId = new Guid("000000ab-00ab-00ab-00ab-0000000000ab");
-NacPortal body = new NacPortal
+NacPortalModel body = new NacPortalModel
 {
     CertExpireTime = 365,
     Name = "get-wifi",
@@ -140,7 +140,7 @@ NacPortal body = new NacPortal
 
 try
 {
-    ApiResponse<NacPortal> result = await orgsNACPortalsController.CreateOrgNacPortalAsync(
+    ApiResponse<NacPortalModel> result = await orgsNACPortalsController.CreateOrgNacPortalAsync(
         orgId,
         body
     );
@@ -261,7 +261,7 @@ GetOrgNacPortalAsync(
 
 ## Response Type
 
-[`Task<ApiResponse<Models.NacPortal>>`](../../doc/models/nac-portal.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `Data` property of this instance returns the response data which is of type [Models.NacPortalModel](../../doc/models/nac-portal-model.md).
 
 ## Example Usage
 
@@ -270,7 +270,7 @@ Guid orgId = new Guid("000000ab-00ab-00ab-00ab-0000000000ab");
 Guid nacportalId = new Guid("000000ab-00ab-00ab-00ab-0000000000ab");
 try
 {
-    ApiResponse<NacPortal> result = await orgsNACPortalsController.GetOrgNacPortalAsync(
+    ApiResponse<NacPortalModel> result = await orgsNACPortalsController.GetOrgNacPortalAsync(
         orgId,
         nacportalId
     );
@@ -329,7 +329,7 @@ Update Org NAC Portal
 UpdateOrgNacPortalAsync(
     Guid orgId,
     Guid nacportalId,
-    Models.NacPortal body = null)
+    Models.NacPortalModel body = null)
 ```
 
 ## Parameters
@@ -338,18 +338,18 @@ UpdateOrgNacPortalAsync(
 |  --- | --- | --- | --- |
 | `orgId` | `Guid` | Template, Required | - |
 | `nacportalId` | `Guid` | Template, Required | - |
-| `body` | [`NacPortal`](../../doc/models/nac-portal.md) | Body, Optional | - |
+| `body` | [`NacPortalModel`](../../doc/models/nac-portal-model.md) | Body, Optional | - |
 
 ## Response Type
 
-[`Task<ApiResponse<Models.NacPortal>>`](../../doc/models/nac-portal.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `Data` property of this instance returns the response data which is of type [Models.NacPortalModel](../../doc/models/nac-portal-model.md).
 
 ## Example Usage
 
 ```csharp
 Guid orgId = new Guid("000000ab-00ab-00ab-00ab-0000000000ab");
 Guid nacportalId = new Guid("000000ab-00ab-00ab-00ab-0000000000ab");
-NacPortal body = new NacPortal
+NacPortalModel body = new NacPortalModel
 {
     CertExpireTime = 365,
     Name = "get-wifi",
@@ -358,7 +358,7 @@ NacPortal body = new NacPortal
 
 try
 {
-    ApiResponse<NacPortal> result = await orgsNACPortalsController.UpdateOrgNacPortalAsync(
+    ApiResponse<NacPortalModel> result = await orgsNACPortalsController.UpdateOrgNacPortalAsync(
         orgId,
         nacportalId,
         body
@@ -431,15 +431,15 @@ ListOrgNacPortalSsoLatestFailuresAsync(
 |  --- | --- | --- | --- |
 | `orgId` | `Guid` | Template, Required | - |
 | `nacportalId` | `Guid` | Template, Required | - |
-| `page` | `int?` | Query, Optional | **Default**: `1`<br>**Constraints**: `>= 1` |
-| `limit` | `int?` | Query, Optional | **Default**: `100`<br>**Constraints**: `>= 0` |
+| `page` | `int?` | Query, Optional | **Default**: `1`<br><br>**Constraints**: `>= 1` |
+| `limit` | `int?` | Query, Optional | **Default**: `100`<br><br>**Constraints**: `>= 0` |
 | `start` | `int?` | Query, Optional | start datetime, can be epoch or relative time like -1d, -1w; -1d if not specified |
 | `end` | `int?` | Query, Optional | end datetime, can be epoch or relative time like -1d, -2h; now if not specified |
-| `duration` | `string` | Query, Optional | duration like 7d, 2w<br>**Default**: `"1d"` |
+| `duration` | `string` | Query, Optional | duration like 7d, 2w<br><br>**Default**: `"1d"` |
 
 ## Response Type
 
-[`Task<ApiResponse<Models.ResponseSsoFailureSearch>>`](../../doc/models/response-sso-failure-search.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `Data` property of this instance returns the response data which is of type [Models.ResponseSsoFailureSearchModel](../../doc/models/response-sso-failure-search-model.md).
 
 ## Example Usage
 
@@ -451,7 +451,7 @@ int? limit = 100;
 string duration = "10m";
 try
 {
-    ApiResponse<ResponseSsoFailureSearch> result = await orgsNACPortalsController.ListOrgNacPortalSsoLatestFailuresAsync(
+    ApiResponse<ResponseSsoFailureSearchModel> result = await orgsNACPortalsController.ListOrgNacPortalSsoLatestFailuresAsync(
         orgId,
         nacportalId,
         page,
@@ -609,7 +609,7 @@ Update Org NAC Portal Template
 UpdateOrgNacPortalTempalteAsync(
     Guid orgId,
     Guid nacportalId,
-    Models.NacPortalTemplate body = null)
+    Models.NacPortalTemplateModel body = null)
 ```
 
 ## Parameters
@@ -618,7 +618,7 @@ UpdateOrgNacPortalTempalteAsync(
 |  --- | --- | --- | --- |
 | `orgId` | `Guid` | Template, Required | - |
 | `nacportalId` | `Guid` | Template, Required | - |
-| `body` | [`NacPortalTemplate`](../../doc/models/nac-portal-template.md) | Body, Optional | - |
+| `body` | [`NacPortalTemplateModel`](../../doc/models/nac-portal-template-model.md) | Body, Optional | - |
 
 ## Response Type
 
@@ -629,7 +629,7 @@ UpdateOrgNacPortalTempalteAsync(
 ```csharp
 Guid orgId = new Guid("000000ab-00ab-00ab-00ab-0000000000ab");
 Guid nacportalId = new Guid("000000ab-00ab-00ab-00ab-0000000000ab");
-NacPortalTemplate body = new NacPortalTemplate
+NacPortalTemplateModel body = new NacPortalTemplateModel
 {
     Color = "#1074bc",
     PoweredBy = false,

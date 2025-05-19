@@ -5,11 +5,12 @@ The following parameters are configurable for the API Client:
 
 | Parameter | Type | Description |
 |  --- | --- | --- |
-| `Timeout` | `TimeSpan` | Http client timeout.<br>*Default*: `TimeSpan.FromSeconds(100)` |
-| `LogBuilder` | [`LogBuilder`](log-builder.md) | Represents the logging configuration builder for API calls |
-| `ApiTokenCredentials` | [`ApiTokenCredentials`](auth/custom-header-signature.md) | The Credentials Setter for Custom Header Signature |
-| `BasicAuthCredentials` | [`BasicAuthCredentials`](auth/basic-authentication.md) | The Credentials Setter for Basic Authentication |
-| `CsrfTokenCredentials` | [`CsrfTokenCredentials`](auth/custom-header-signature-1.md) | The Credentials Setter for Custom Header Signature |
+| Timeout | `TimeSpan` | Http client timeout.<br>*Default*: `TimeSpan.FromSeconds(100)` |
+| HttpClientConfiguration | [`Action<HttpClientConfiguration.Builder>`](../doc/http-client-configuration-builder.md) | Action delegate that configures the HTTP client by using the HttpClientConfiguration.Builder for customizing API call settings.<br>*Default*: `new HttpClient()` |
+| LogBuilder | [`LogBuilder`](../doc/log-builder.md) | Represents the logging configuration builder for API calls |
+| ApiTokenCredentials | [`ApiTokenCredentials`](auth/custom-header-signature.md) | The Credentials Setter for Custom Header Signature |
+| BasicAuthCredentials | [`BasicAuthCredentials`](auth/basic-authentication.md) | The Credentials Setter for Basic Authentication |
+| CsrfTokenCredentials | [`CsrfTokenCredentials`](auth/custom-header-signature-1.md) | The Credentials Setter for Custom Header Signature |
 
 The API client can be initialized as follows:
 
@@ -39,14 +40,6 @@ MistAPIClient client = new MistAPIClient.Builder()
     .Build();
 ```
 
-API calls return an `ApiResponse` object that includes the following fields:
-
-| Field | Description |
-|  --- | --- |
-| `StatusCode` | Status code of the HTTP response |
-| `Headers` | Headers of the HTTP response as a Hash |
-| `Data` | The deserialized body of the HTTP response as a String |
-
 ## Mist APIClient Class
 
 The gateway for the SDK. This class acts as a factory for the Controllers and also holds the configuration of the SDK.
@@ -62,7 +55,7 @@ The gateway for the SDK. This class acts as a factory for the Controllers and al
 
 | Name | Description | Type |
 |  --- | --- | --- |
-| HttpClientConfiguration | Gets the configuration of the Http Client associated with this client. | [`IHttpClientConfiguration`](http-client-configuration.md) |
+| HttpClientConfiguration | Gets the configuration of the Http Client associated with this client. | [`IHttpClientConfiguration`](../doc/http-client-configuration.md) |
 | Timeout | Http client timeout. | `TimeSpan` |
 | Environment | Current API environment. | `Environment` |
 | ApiTokenCredentials | Gets the credentials to use with ApiToken. | [`IApiTokenCredentials`](auth/custom-header-signature.md) |
@@ -84,7 +77,7 @@ Class to build instances of Mist APIClient.
 
 | Name | Description | Return Type |
 |  --- | --- | --- |
-| `HttpClientConfiguration(Action<`[`HttpClientConfiguration.Builder`](http-client-configuration-builder.md)`> action)` | Gets the configuration of the Http Client associated with this client. | `Builder` |
+| `HttpClientConfiguration(Action<`[`HttpClientConfiguration.Builder`](../doc/http-client-configuration-builder.md)`> action)` | Gets the configuration of the Http Client associated with this client. | `Builder` |
 | `Timeout(TimeSpan timeout)` | Http client timeout. | `Builder` |
 | `Environment(Environment environment)` | Current API environment. | `Builder` |
 | `ApiTokenCredentials(Action<ApiTokenModel.Builder> action)` | Sets credentials for ApiToken. | `Builder` |

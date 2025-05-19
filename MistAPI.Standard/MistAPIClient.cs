@@ -35,7 +35,7 @@ namespace MistAPI.Standard
 
         private readonly GlobalConfiguration globalConfiguration;
         private SdkLoggingConfiguration sdkLoggingConfiguration;
-        private const string userAgent = "Use placeholders: DotNet 1.2.3 {os-info}";
+        private const string userAgent = "Use placeholders: DotNet 2.99.9 {os-info}";
         private readonly HttpCallback httpCallback;
         private readonly Lazy<OrgsNACTagsController> orgsNACTags;
         private readonly Lazy<OrgsNACPortalsController> orgsNACPortals;
